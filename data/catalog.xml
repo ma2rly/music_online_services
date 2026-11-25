@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <music_service version="2">
-    <artists />
-    <tracks />
-    <listeners />
-    <playlists />
-    <albums />
-    <genres />
-    <labels />
-    <plans />
-    <subscriptions />
-    <favorites />
-    <reviews />
-    <history />
+  <artists />
+  <tracks />
+  <listeners />
+  <playlists />
+  <albums />
+  <genres />
+  <labels />
+  <plans />
+  <subscriptions />
+  <favorites />
+  <reviews />
+  <history />
 </music_service>

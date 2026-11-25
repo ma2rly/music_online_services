@@ -299,6 +299,19 @@ class Catalog:
         self.plans[item.id] = item
         return item
 
+    def delete_plan(self, plan_id: int) -> None:
+        self._get(self.plans,plan_id, 'Тариф')
+        if any(sub.plan_id == plan_id
+               for sub in self.subscriptions.values()):
+            raise ValidationError(
+                'Сначала удалите подписки на этот тариф'
+            )
+        del self.plans[plan_id]
+
+    def delete_subscription(self, subscription_id: int) -> None:
+        self._get(self.subscriptions, subscription_id, 'Подписка')
+        del self.subscriptions[subscription_id]
+
     def add_subscription(self, listener_id: int, plan_id: int,
                          active: bool = True) -> Subscription:
         self.get_listener(listener_id)

@@ -59,6 +59,18 @@ class ConsoleApp:
             if not collection:
                 print('  Пока нет записей')
 
+    def show_plans(self) -> None:
+        """Показывает тарифы из текущего каталога"""
+        plans = self.service.catalog.plans
+        print('\nДОСТУПНЫЕ ТАРИФЫ:')
+
+        if not plans:
+            print (' Тарифов пока нет')
+            return
+        for plan in sorted(plans.values(), key=lambda item: item.id):
+            print(f' #{plan.id}: {plan.name} - '
+                 f'{plan.monthly_fee}$  в месяц')
+
     @staticmethod
     def read_int(prompt: str) -> int:
         """Запрашивает целое число с сообщением о допустимом типе"""
@@ -99,6 +111,8 @@ class ConsoleApp:
 28  — Оставить отзыв
 29  — Записать прослушивание
 30  — Показать дополнительные коллекции
+31  — Удалить тариф
+32  — Удалить подписку
  0  — Выход
 """
         while True:
@@ -207,10 +221,15 @@ class ConsoleApp:
                     print(f'Добавлен лейбл #{label.id}')
                 elif choice == '25':
                     name = input('Название тарифа: ')
-                    fee = self.read_int('Стоимость в условных единицах: ')
+                    fee = self.read_int('Стоимость в $: ')
                     plan = self.service.add_plan(name, fee)
                     print(f'Создан тариф #{plan.id}')
                 elif choice == '26':
+                    self.show_plans()
+
+                    if not self.service.catalog.plans:
+                        continue
+
                     listener_id = self.read_int('ID пользователя: ')
                     plan_id = self.read_int('ID тарифа: ')
                     sub = self.service.add_subscription(listener_id, plan_id)
@@ -235,6 +254,31 @@ class ConsoleApp:
                     print('Прослушивание записано')
                 elif choice == '30':
                     self.show_extra()
+                elif choice == '31':
+                    self.show_plans()
+                    if not self.service.catalog.plans:
+                        continue
+                    plan_id = self.read_int('ID тарифа для удаления: ')
+                    if input('Удалить тариф?(y/n): ').strip().lower() == 'y':
+                        self.service.delete_plan(plan_id)
+                        print('Тариф удалён')
+                    else:
+                        print('Удаление отменено')
+                elif choice == '32':
+                    subscriptions = self.service.catalog.subscriptions
+                    if not subscriptions:
+                        print('Подписок пока нет')
+                        continue
+                    print('\nПОДПИСКИ:')
+                    for sub in subscriptions.values():
+                        print(f'#{sub.id}: пользователь #{sub.listener_id},'
+                              f'тариф #{sub.plan_id}')
+                    subscription_id = self.read_int('ID подписки для удаления: ')
+                    if input('Удалить подписку? y/n: ').strip().lower() == 'y':
+                        self.service.delete_subscription(subscription_id)
+                        print('Подписка удалена')
+                    else:
+                        print('Удаление отменено')
                 else:
                     print('Нет такого пункта меню')
             except ValueError:

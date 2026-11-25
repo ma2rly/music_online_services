@@ -93,6 +93,12 @@ class MusicService:
     def add_plan(self, name: str, monthly_fee: int) -> SubscriptionPlan:
         return self.catalog.add_plan(name, monthly_fee)
 
+    def delete_plan(self, plan_id: int) -> None:
+        self.catalog.delete_plan(plan_id)
+
+    def delete_subscription(self, subscription_id: int) -> None:
+        self.catalog.delete_subscription(subscription_id)
+
     def add_subscription(self, listener_id: int, plan_id: int,
                          active: bool = True) -> Subscription:
         return self.catalog.add_subscription(listener_id, plan_id, active)
