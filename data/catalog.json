@@ -1,52 +1,14 @@
 {
-  "artists": [
-    {
-      "id": 1,
-      "name": "Imagine Dragons"
-    },
-    {
-      "id": 2,
-      "name": "Моя Мишель"
-    }
-  ],
-  "tracks": [
-    {
-      "id": 1,
-      "title": "Believer",
-      "artist_id": 1,
-      "duration_seconds": 204,
-      "genre": "Pop rock"
-    },
-    {
-      "id": 2,
-      "title": "Demons",
-      "artist_id": 1,
-      "duration_seconds": 177,
-      "genre": "Alternative rock"
-    },
-    {
-      "id": 3,
-      "title": "Зима в сердце",
-      "artist_id": 2,
-      "duration_seconds": 218,
-      "genre": "Инди-поп"
-    }
-  ],
-  "listeners": [
-    {
-      "id": 1,
-      "username": "student"
-    }
-  ],
-  "playlists": [
-    {
-      "id": 1,
-      "name": "Для учёбы",
-      "owner_id": 1,
-      "track_ids": [
-        1,
-        3
-      ]
-    }
-  ]
+  "artists": [],
+  "tracks": [],
+  "listeners": [],
+  "playlists": [],
+  "albums": [],
+  "genres": [],
+  "labels": [],
+  "plans": [],
+  "subscriptions": [],
+  "favorites": [],
+  "reviews": [],
+  "history": []
 }

@@ -1,4 +1,5 @@
-"""Реализация MusicRepository для JSON."""
+"""Репозиторий для сериализации и десериализации JSON"""
+
 import json
 from pathlib import Path
 
@@ -6,8 +7,11 @@ from domain.exceptions import DataFormatError, MusicServiceError
 from domain.models import Catalog
 from domain.repository import MusicRepository
 
+
 class JsonMusicRepository(MusicRepository):
-    def __init__(self, path: Path):
+    """Читает и записывает каталог в JSON с проверкой структуры"""
+
+    def __init__(self, path: Path) -> None:
         self.path = Path(path)
 
     def load(self) -> Catalog:

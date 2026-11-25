@@ -1,39 +1,15 @@
-<?xml version='1.0' encoding='utf-8'?>
-<music_service version="1">
-  <artists>
-    <artist id="1">
-      <name>Imagine Dragons</name>
-    </artist>
-    <artist id="2">
-      <name>Моя Мишель</name>
-    </artist>
-  </artists>
-  <tracks>
-    <track id="1" artist_id="1" duration_seconds="204">
-      <title>Believer</title>
-      <genre>Pop rock</genre>
-    </track>
-    <track id="2" artist_id="1" duration_seconds="177">
-      <title>Demons</title>
-      <genre>Alternative rock</genre>
-    </track>
-    <track id="3" artist_id="2" duration_seconds="218">
-      <title>Зима в сердце</title>
-      <genre>Инди-поп</genre>
-    </track>
-  </tracks>
-  <listeners>
-    <listener id="1">
-      <username>student</username>
-    </listener>
-  </listeners>
-  <playlists>
-    <playlist id="1" owner_id="1">
-      <name>Для учёбы</name>
-      <track_ids>
-        <track id="1" />
-        <track id="3" />
-      </track_ids>
-    </playlist>
-  </playlists>
+<?xml version="1.0" encoding="utf-8"?>
+<music_service version="2">
+    <artists />
+    <tracks />
+    <listeners />
+    <playlists />
+    <albums />
+    <genres />
+    <labels />
+    <plans />
+    <subscriptions />
+    <favorites />
+    <reviews />
+    <history />
 </music_service>
